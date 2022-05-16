@@ -11,7 +11,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 
 #Create admin permission to argoCD that argocd used that permission and deploy project on k8s cluster 
 
-kubectl create clusterrolebinding test-cluster-admin-binding --clusterrole=cluster-admin --user=swapnil@glistensoft.com
+kubectl create clusterrolebinding test-cluster-admin-binding --clusterrole=cluster-admin --user=swapnil@gmail.com
 
 # 2. Access The Argo CD server as web-service
 #Change the argocd-server service type to LoadBalancer
