@@ -2,7 +2,7 @@ Official Doc:
 
 https://argo-cd.readthedocs.io/en/stable/getting_started/
 
-1. Install Argo CD:
+# 1. Install Argo CD:
 #This will create a new namespace, argocd, where Argo CD services and application resources will live.
 
 kubectl create namespace argocd
@@ -13,18 +13,18 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 
 kubectl create clusterrolebinding test-cluster-admin-binding --clusterrole=cluster-admin --user=swapnil@glistensoft.com
 
-2. Access The Argo CD server as web-service
+# 2. Access The Argo CD server as web-service
 #Change the argocd-server service type to LoadBalancer
 
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 
-# or Port Forwarding 
-# Kubectl port-forwarding can also be used to connect to the API server without exposing the service.
+#or Port Forwarding 
+#Kubectl port-forwarding can also be used to connect to the API server without exposing the service.
 
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 
 
-3. Login Using The CLI
+# 3. Login Using The CLI
 #initial username is admin and password store in plane text
 
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
