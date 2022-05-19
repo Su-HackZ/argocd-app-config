@@ -40,5 +40,9 @@ argocd login <IP_ARGO_SERVER>   #get it from service
 argocd account update-password  #will change login user password
 
 
+# uninstall ArgoCD
+
+kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
 
 
