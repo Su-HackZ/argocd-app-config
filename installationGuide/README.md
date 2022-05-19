@@ -40,9 +40,23 @@ argocd login <IP_ARGO_SERVER>   #get it from service
 argocd account update-password  #will change login user password
 
 
-# uninstall ArgoCD
+# Uninstall ArgoCD
 
 kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+
+
+# Installing via helm Chart
+
+helm repo add argo https://argoproj.github.io/argo-helm
+
+helm install my-release argo/argo-cd -n argocd
+
+# Uninstall via helm Chart
+
+helm uninstall my-release argo/argo-cd -n argocd
+
+
 
 
 
