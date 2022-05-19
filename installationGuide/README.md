@@ -50,11 +50,11 @@ kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/s
 
 helm repo add argo https://argoproj.github.io/argo-helm
 
-helm install my-release argo/argo-cd -n argocd
+helm install argocd argo/argo-cd -n argocd
 
 # Uninstall via helm Chart
 
-helm uninstall my-release argo/argo-cd -n argocd
+helm uninstall argocd -n argocd
 
 
 
