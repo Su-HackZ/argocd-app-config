@@ -3,16 +3,13 @@ kind: Application
 metadata:
   name: sm-storage
 spec:
-  destination:
-    name: ''
-    namespace: ''
-    server: 'https://kubernetes.default.svc'
-  source:
-    path: sm-storage
-    repoURL: 'https://github.com/Su-HackZ/argocd-app-config.git'
-    targetRevision: HEAD
   project: default
-  syncPolicy:
+  source:
+    repoURL: https://github.com/Su-HackZ/argocd-app-config.git
+    targetRevision: HEAD
+    path: test
+  destination: 
+    server: https://kubernetes.default.svc
     automated:
-      prune: true
       selfHeal: true
+      prune: true
