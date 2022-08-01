@@ -1,0 +1,36 @@
+---
+# Source: sm-common/templates/production-clusterissuer.yaml
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+  labels:
+    app: sm-common
+    component: production
+spec:
+  acme:
+    # The ACME server URL
+    server: https://acme-v02.api.letsencrypt.org/directory
+    # Email address used for ACME registration
+    email: ops@sightmachine.com
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: letsencrypt-production
+    # Enable the HTTP-01 challenge provider
+    http01:
+      ingress: sm-sm-common-production
+    # ACME dns-01 provider configurations
+    # dns01:
+    #   # Here we define a list of DNS-01 providers that can solve DNS challenges
+    #   providers:
+    #   - name: route53
+    #     route53:
+    #       accessKeyID: AKIADKOU3GLWAQM8WQKJ
+    #       # A secretKeyRef to a the route53 secret access key
+    #       secretAccessKeySecretRef:
+    #         name: route53-config
+    #         key: secret-access-key
+    #       region: us-east-1
+    #       # This field is optional for overriding the Route53 hosted zone ID
+    #       # It is required to use it if the cert-manager cannot disambiguate between two different hosted zones for the same zone name
+    #       hostedZoneID: DIKER8JPL21PSA
