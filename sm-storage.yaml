@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: sm-storage
-  namespace: ''
+  namespace: argocd
 
 spec:
   project: default
@@ -12,5 +12,5 @@ spec:
     path: smstorage
   destination: 
     server: https://kubernetes.default.svc
-    namespace: ''
+    namespace: default
 
