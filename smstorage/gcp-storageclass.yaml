@@ -1,3 +1,5 @@
+# Source: sm-storage/templates/gcp-storageclass.yaml
+---
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 allowVolumeExpansion: true
@@ -6,3 +8,14 @@ metadata:
 provisioner: kubernetes.io/gce-pd
 parameters:
   type: pd-ssd
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+allowVolumeExpansion: true
+metadata:
+  annotations:
+    storageclass.beta.kubernetes.io/is-default-class: "true"
+  name: standard
+parameters:
+  type: pd-standard
+provisioner: kubernetes.io/gce-pd
