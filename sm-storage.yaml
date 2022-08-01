@@ -2,14 +2,15 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: sm-storage
+  namespace: ''
+
 spec:
   project: default
   source:
     repoURL: https://github.com/Su-HackZ/argocd-app-config.git
     targetRevision: HEAD
-    path: test
+    path: smstorage
   destination: 
     server: https://kubernetes.default.svc
-    automated:
-      selfHeal: true
-      prune: true
+    namespace: ''
+
